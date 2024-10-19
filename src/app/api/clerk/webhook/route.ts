@@ -18,7 +18,7 @@ export const POST = async (req: Request)=>{
             imageUrl: imageUrl
         }
     });
-    console.log('user created', data);
+    console.log('user created');
     
     return new Response('Webhook received', { status: 200 });
 }
