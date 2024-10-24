@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { EmailMessage, SyncResponse, SyncUpdatedResponse } from "./types";
 
 export class Account{
@@ -14,7 +14,7 @@ export class Account{
                 Authorization: `Bearer ${this.token}`
             },
             params:{
-                daysWithin: 4,
+                daysWithin: 3,
                 bodytype: 'html'
             }
         })
