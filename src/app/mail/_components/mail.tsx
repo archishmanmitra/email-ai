@@ -8,6 +8,7 @@ import { TabsList } from '@radix-ui/react-tabs'
 import { TooltipProvider } from '@radix-ui/react-tooltip'
 import React, { useState } from 'react'
 import AccountSwitcher from './account-switcher'
+import Sidebar from './sidebar'
 
 type Props = {
     defaultLayout: number[] | undefined,
@@ -44,7 +45,7 @@ const Mail = ({defaultLayout = [20, 30, 50], navCollapsedSize, defaultCollapsed}
                   </div>
                   <Separator/>
                   {/* Sidebar */}
-                  Sidebar
+                  <Sidebar isCollapsed={isCollapsed}/>
                   <div className="flex-1">
                     {/* Ask AI */}
                     Ask AI

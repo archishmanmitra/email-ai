@@ -4,6 +4,8 @@ import { useLocalStorage } from 'usehooks-ts'
 import React from 'react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
+import { Plus } from 'lucide-react'
+import { getAurinkoAuthURL } from '@/lib/aurinko'
 
 type Props = {
     isCollapsed: boolean
@@ -23,7 +25,7 @@ const AccountSwitcher = ({ isCollapsed }: Props) => {
             "flex h-9 w-9 shrink-0 items-center justify-center p-0 [&>span]:w-auto [&>svg]:hidden"
           )}
           aria-label="Select account">
-            <SelectValue placeholder='Select an account'>
+            <SelectValue placeholder="Select an account">
                 <span className={cn({'hidden': !isCollapsed})}>
                   {data?.find(acc => acc.id === accountId)?.emailAddress[0]}
                 </span>
@@ -40,6 +42,13 @@ const AccountSwitcher = ({ isCollapsed }: Props) => {
               </SelectItem>
             )
           })}
+          <div onClick={async ()=>{
+      const authUrl =await getAurinkoAuthURL('Google')
+      window.location.href=authUrl;      
+           } } className="flex hover:bg-gray-50 w-full items-center cursor-pointer rounded-sm pl-2 pr-8 py-2 outline-none focus:bg-accent text-sm">
+            <Plus className='size-4 mr-1'/>
+            Add account
+          </div>
         </SelectContent>
     </Select>
   )
