@@ -1,5 +1,5 @@
 "use client"
-import { api } from '@/trpc/react'
+import { api } from '@/app/trpc/react'
 import { useLocalStorage } from 'usehooks-ts'
 import React from 'react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'

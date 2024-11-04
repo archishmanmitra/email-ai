@@ -3,7 +3,7 @@ import React from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 import Nav from './nav'
 import { File, Inbox, Send } from 'lucide-react'
-import { api } from '@/trpc/server'
+import { api } from '@/app/trpc/react'
 
 type Props = {
     isCollapsed: boolean
