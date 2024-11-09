@@ -8,6 +8,7 @@ import { TRPCReactProvider } from "@/app/trpc/react";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Email Devda",
@@ -20,9 +21,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable}`}>
+      <html lang="en" suppressHydrationWarning className={`${GeistSans.variable}`}>
         <body>
-          <TRPCReactProvider>{children}</TRPCReactProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TRPCReactProvider>{children}</TRPCReactProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
